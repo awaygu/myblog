@@ -42,7 +42,7 @@ jobs:
       #     node-version: '20'
       #     cache: npm # 或 pnpm / yarn
       - name: Setup Pages
-        uses: actions/configure-pages@v3 # 在工作流程自动配置GithubPages
+        uses: actions/configure-pages@v4 # 在工作流程自动配置GithubPages
       - name: Install dependencies
         run: npm install # 或 npm install / yarn install / bun install
       - name: Build with VitePress
@@ -50,7 +50,7 @@ jobs:
           npm run docs:build # 或 npm docs:build / yarn docs:build / bun run docs:build
           touch .nojekyll  # 通知githubpages不要使用Jekyll处理这个站点，不知道为啥不生效，就手动搞了
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .vitepress/dist
 
@@ -65,4 +65,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
